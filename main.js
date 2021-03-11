@@ -96,4 +96,20 @@ for(var key in grandi){
 console.log('peso tot: ' + sommaGran);
 
 
+/*3)
+Scrivi una funzione che accetti una stringa come
+argomento e la ritorni girata (es. Ciao -> oaiC)*/
 
+function girata(stringa){
+    var girata = [];
+    for (i=stringa.length-1 ; i>= 0 ; i--){
+        girata.push(stringa.charAt(i));
+    }
+    
+
+    return girata.join('');
+}
+
+var ciao = 'Ciao';
+
+console.log(girata(ciao));
