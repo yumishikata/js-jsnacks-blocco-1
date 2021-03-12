@@ -113,3 +113,29 @@ function girata(stringa){
 var ciao = 'Ciao';
 
 console.log(girata(ciao));
+
+//ESERCIZI NUOVI 
+
+console.log('------ESERCIZI NUOVI-------');
+/* 1)
+Generatore di “nomi cognomi” casuali: prendendo una lista
+di nomi e una lista di cognomi, Gatsby vuole generare una
+falsa lista di 3 invitati. */
+function numRandom(min,max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generatoreInvitato (nomi,cognomi,numero) {
+    var listaInvitati = [];
+    for (i=0 ; i<numero ; i++){
+        var n = numRandom(0 , nomi.length);
+        var c = numRandom(0 , cognomi.length);
+        listaInvitati.push(nomi[n] + ' ' + cognomi[c]);
+    }
+    return listaInvitati;
+}
+
+var nomi = ['Claudia' , 'Carlo' , 'Paolo' , 'Yumi'];
+var cognomi = ['Shikata' , 'Manuelli' , 'Totti' , 'Pelù', 'Rossi'];
+
+console.log(generatoreInvitato(nomi,cognomi,3));
