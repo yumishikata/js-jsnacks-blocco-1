@@ -121,6 +121,8 @@ console.log('------ESERCIZI NUOVI-------');
 Generatore di “nomi cognomi” casuali: prendendo una lista
 di nomi e una lista di cognomi, Gatsby vuole generare una
 falsa lista di 3 invitati. */
+
+console.log('ES 1');
 function numRandom(min,max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -139,3 +141,90 @@ var nomi = ['Claudia' , 'Carlo' , 'Paolo' , 'Yumi'];
 var cognomi = ['Shikata' , 'Manuelli' , 'Totti' , 'Pelù', 'Rossi'];
 
 console.log(generatoreInvitato(nomi,cognomi,3));
+
+/* 2)
+Crea un array di numeri interi e fai la somma di tutti gli
+elementi che sono in posizione dispari */
+console.log('ES 2');
+
+var interi = [0,1,2,3,4,5,6,7,8,9,10];
+var somma = 0;
+for (i=0; i<interi.length ; i++){
+    if (i%2 != 0){
+        somma += interi[i];
+    }
+}
+console.log(interi);
+console.log('Somma delle posizioni dispari: ' + somma);
+
+
+/* 3)
+Crea due array che hanno un numero di elementi diversi.
+Aggiungi elementi casuali all’array che ha meno elementi,
+fino a quando ne avrà tanti quanti l’altro. */
+console.log('ES 3');
+
+var maggiore = [4,5,7,1,3,8,10];
+var minore = [1,2,3];
+console.log(maggiore);
+console.log(minore);
+var differenza = maggiore.length - minore.length;
+
+for(i=0 ; i<differenza; i++){
+    var random = numRandom(1 , 20);
+    minore.push(random);
+}
+
+console.log(minore);
+
+/* 4)
+Scrivi una funzione che fonda due array (aventi lo stesso
+numero di elementi) prendendo alternativamente gli
+elementi da uno e dall’altro
+es. [a,b,c], [1,2,3] → [a,1,b,2,c,3]. */
+console.log('ES 4');
+
+function twoInOne (array1 , array2){
+    if(array1.length != array2.length){
+        console.log('LE LUNGHEZZE SONO DIVERSE')
+        return;
+    }
+    var array3 = [];
+    for (i=0; i<array1.length; i++){
+        array3.push(array1[i]);
+        array3.push(array2[i]);
+    }
+    return array3;
+}
+
+var array1 = ['a','b','c','d'];
+var array2 = [1,2,3,4];
+
+console.log(array1,array2);
+console.log('array3: ' + twoInOne(array1,array2));
+
+/* 5)
+Scrivi una funzione che accetti tre argomenti:
+un array e due numeri (“a” più piccolo di “b” e “b” grande al
+massimo quanto il numero di elementi dell’array).
+La funzione ritornerà un nuovo array con i valori che
+hanno la posizione compresa tra “a” e “b” */
+console.log('ES 5');
+
+function posizioneCompresa (array,minPos, maxPos) {
+    if (!(minPos < maxPos && maxPos<= array.length)){
+        console.log('NON SONO RISPETTATE LE REGOLE');
+        return;
+    }
+    var nuovoArray= [];
+    for (i=minPos ; i<=maxPos ; i++){
+        nuovoArray.push(array[i]);
+    }
+
+    return nuovoArray;
+}
+
+var arrayProva = [0,1,2,3,4,5,6,7,8,9];
+var min = 3, max = 7;
+console.log(arrayProva);
+console.log('Array con indici compresi tra ' + min + ' e ' + max + ' : ' + posizioneCompresa(arrayProva,min,max));
